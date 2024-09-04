@@ -1,7 +1,8 @@
 <?php
 // https://www.youtube.com/watch?v=YUSZSW75J6M
+// $conn = mysqli_connect('localhost', 'root', ' ', 'formsubmission');
 include __DIR__."/inc/header.inc.php";
-include __DIR__."/inc/connect.php";
+// include __DIR__."/inc/connect.php";
 $title = "Form Submiting Project";
 $heading = "Form Submission Project";
 
@@ -11,27 +12,69 @@ $heading = "Form Submission Project";
 //     echo "Your Email Address is:" . " " . $_POST['email'];
 //     echo "<br>";
 //     echo "Your Message is:" . " " . $_POST['message'];
+
+
+
+// mysqli_report(MYSQLI_REPORT_OFF);
+// /* @ is used to suppress warnings */
+// $mysqli = @new mysqli('localhost', 'root', ' ', 'formsubmission');
+// if ($mysqli->connect_error) {
+//     /* Use your preferred error logging method here */
+//     error_log('Connection error: ' . $mysqli->connect_error);
 // }
+
+// $mysqli = new mysqli("localhost","root"," ","formsubmission");
+
+// // Check connection
+// if ($mysqli -> connect_errno) {
+//   echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
+//   exit();
+// }
+
+
+// $con = mysqli_connect("localhost", "root", " ", "formsubmission");
+
+// // Check connection
+// if (mysqli_connect_errno()) {
+//   echo "Failed to connect to MySQL: ";
+//   exit();
+// }
+
+//Creating a connection
+
+// $con = @mysqli_connect("localhost", "root", " ", "formsubmission");
+
+// //Connection Error
+// $error = mysqli_connect_error($con);
+// print("Error: ".$error);
+
+
+
 if(isset($_POST['submit'])){
-    $name       = mysqli_real_escape_string($con, $_POST['name']);
-    $email      = mysqli_real_escape_string($con, $_POST['email']);
-    $message    = mysqli_real_escape_string($con, $_POST['message']);
-    
-    $sql = "INSERT INTO formsubmit (name, email, message) VALUES (?, ?, ?)";
-    $stmt = mysqli_prepare($con, $sql);
-    
-    if ($stmt) {
-        mysqli_stmt_bind_param($stmt, "sss", $name, $email, $message);
-        if (mysqli_stmt_execute($stmt)) {
-            echo "Data Submitted Successfully";
-        } else {
-            echo "Error: " . mysqli_stmt_error($stmt);
-        }
-        mysqli_stmt_close($stmt);
-    } else {
-        echo "Error: " . mysqli_error($con);
-    }
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
 }
+// if(isset($_POST['submit'])){
+//     $name       = mysqli_real_escape_string($con, $_POST['name']);
+//     $email      = mysqli_real_escape_string($con, $_POST['email']);
+//     $message    = mysqli_real_escape_string($con, $_POST['message']);
+    
+//     $sql = "INSERT INTO `formsubmit` (name, email, message) VALUES ('$name', '$email', '$message')";
+//     $stmt = mysqli_prepare($con, $sql);
+    
+//     if ($stmt) {
+//         mysqli_stmt_bind_param($stmt, "sss", '$name', '$email', '$message');
+//         if (mysqli_stmt_execute($stmt)) {
+//             echo "Data Submitted Successfully";
+//         } else {
+//             echo "Error: " . mysqli_stmt_error($stmt);
+//         }
+//         mysqli_stmt_close($stmt);
+//     } else {
+//         echo "Error: " . mysqli_error($con);
+//     }
+// }
 
 ?>
 
