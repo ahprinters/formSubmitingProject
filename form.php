@@ -59,6 +59,14 @@ $heading = "Form Submission Project";
 //    print("Connection Established Successfully");
 // }
 // ==========================
+
+$connection = @mysqli_connect("localhost","root"," ","formsubmission");
+   
+   if (!$connection){
+      die("Connection error: " . mysqli_connect_error());
+   }
+
+
 if(isset($_POST['submit'])){
     $name = $_POST['name'];
     $email = $_POST['email'];
