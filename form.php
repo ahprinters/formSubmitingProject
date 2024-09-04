@@ -5,28 +5,28 @@ include __DIR__."/inc/header.inc.php";
 $title = "Form Submiting Project";
 $heading = "Form Submission Project";
 
-if(isset($_POST['submit'])){
-    echo "Your Name is:" . " " . $_POST['name'];
-    echo "<br>";
-    echo "Your Email Address is:" . " " . $_POST['email'];
-    echo "<br>";
-    echo "Your Message is:" . " " . $_POST['message'];
-}
 // if(isset($_POST['submit'])){
-    // $name = $_POST['name'];
-    // $email = $_POST['email'];
-    // $message = $_POST['message'];
-    // $sql = "INSERT INTO  formsubmit (name, email, message)
-    // VALUES('$name', '$email', '$message')";
+//     echo "Your Name is:" . " " . $_POST['name'];
+//     echo "<br>";
+//     echo "Your Email Address is:" . " " . $_POST['email'];
+//     echo "<br>";
+//     echo "Your Message is:" . " " . $_POST['message'];
+// }
+if(isset($_POST['submit'])){
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
+    $sql = "INSERT INTO  formsubmit (name, email, message)
+    VALUES('$name', '$email', '$message')";
 
-//     if(mysqli_query($con, $sql) == TRUE){
-//         echo "Data Submission Successfully";
-//     } else{
-//         echo "Data Submission Successfully";
+    if(mysqli_query($con, $sql) == TRUE){
+        echo "Data Submission Successfully";
+    } else{
+        echo "Data Submission Successfully";
 
-//     }
+    }
     
-// }   
+}   
 ?>
 
 
