@@ -46,3 +46,22 @@
     ?>
   </body>
 </html>
+
+-- Table structure for table `calc`
+--
+
+CREATE TABLE IF NOT EXISTS `calc` (
+  `id` int(12) NOT NULL,
+  `yr` year(4) NOT NULL,
+  `mnth` varchar(12) NOT NULL,
+  `name` varchar(256) NOT NULL,
+  `paidleave` int(12) NOT NULL,
+  `balanceleave` int(12) NOT NULL,
+  `unpaidleave` int(12) NOT NULL,
+  `basesalary` int(12) NOT NULL,
+  `deductions` int(12) NOT NULL,
+  `tds` int(12) NOT NULL,
+  `pf` int(12) NOT NULL,
+  `finalsalary` int(12) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;

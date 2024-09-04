@@ -1,11 +1,11 @@
 <?php
 // https://www.youtube.com/watch?v=YUSZSW75J6M
-// $conn = mysqli_connect('localhost', 'root', ' ', 'formsubmission');
+$conn = mysqli_connect('localhost', 'root', ' ', 'formsubmission');
 include __DIR__."/inc/header.inc.php";
 // include __DIR__."/inc/connect.php";
 $title = "Form Submiting Project";
 $heading = "Form Submission Project";
-
+// ==================================
 // if(isset($_POST['submit'])){
 //     echo "Your Name is:" . " " . $_POST['name'];
 //     echo "<br>";
@@ -13,7 +13,7 @@ $heading = "Form Submission Project";
 //     echo "<br>";
 //     echo "Your Message is:" . " " . $_POST['message'];
 
-
+// ========================
 
 // mysqli_report(MYSQLI_REPORT_OFF);
 // /* @ is used to suppress warnings */
@@ -24,13 +24,13 @@ $heading = "Form Submission Project";
 // }
 
 // $mysqli = new mysqli("localhost","root"," ","formsubmission");
-
+// ========================
 // // Check connection
 // if ($mysqli -> connect_errno) {
 //   echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
 //   exit();
 // }
-
+// =====================
 
 // $con = mysqli_connect("localhost", "root", " ", "formsubmission");
 
@@ -39,7 +39,7 @@ $heading = "Form Submission Project";
 //   echo "Failed to connect to MySQL: ";
 //   exit();
 // }
-
+// ===========================
 //Creating a connection
 
 // $con = @mysqli_connect("localhost", "root", " ", "formsubmission");
@@ -47,9 +47,18 @@ $heading = "Form Submission Project";
 // //Connection Error
 // $error = mysqli_connect_error($con);
 // print("Error: ".$error);
-
-
-
+// ==================
+//Creating a connection
+// $con = @mysqli_connect("localhost", "root", " ", "formsubmission");
+   
+// //Connection Error
+// $error = mysqli_connect_error();
+// if(!$con){
+//    print("Connection Failed: ".$error);
+// }else{
+//    print("Connection Established Successfully");
+// }
+// ==========================
 if(isset($_POST['submit'])){
     $name = $_POST['name'];
     $email = $_POST['email'];
@@ -75,7 +84,7 @@ if(isset($_POST['submit'])){
 //         echo "Error: " . mysqli_error($con);
 //     }
 // }
-
+// ============================
 ?>
 
 
