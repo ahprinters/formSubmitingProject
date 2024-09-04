@@ -1,6 +1,6 @@
 <?php
 // https://www.youtube.com/watch?v=YUSZSW75J6M
-$conn = mysqli_connect('localhost', 'root', ' ', 'formsubmission');
+// $conn = mysqli_connect('localhost', 'root', ' ', 'formsubmission');
 include __DIR__."/inc/header.inc.php";
 // include __DIR__."/inc/connect.php";
 $title = "Form Submiting Project";
