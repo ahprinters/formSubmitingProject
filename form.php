@@ -16,7 +16,7 @@ if(isset($_POST['submit'])){
     $name = $_POST['name'];
     $email = $_POST['email'];
     $message = $_POST['message'];
-    $sql = "INSERT INTO  formsubmit (name, email, message)
+    $sql = "INSERT INTO   formsubmission (name, email, message)
     VALUES('$name', '$email', '$message')";
 
     if(mysqli_query($con, $sql) == TRUE){
