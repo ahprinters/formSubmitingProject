@@ -1,7 +1,7 @@
 <?php
 // https://www.youtube.com/watch?v=YUSZSW75J6M
 include __DIR__."/inc/header.inc.php";
-// include __DIR__."/inc/connect.php";
+include __DIR__."/inc/connect.php";
 $title = "Form Submiting Project";
 $heading = "Form Submission Project";
 
@@ -13,20 +13,26 @@ $heading = "Form Submission Project";
 //     echo "Your Message is:" . " " . $_POST['message'];
 // }
 if(isset($_POST['submit'])){
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $message = $_POST['message'];
-    $sql = "INSERT INTO   formsubmission (name, email, message)
-    VALUES('$name', '$email', '$message')";
-
-    if(mysqli_query($con, $sql) == TRUE){
-        echo "Data Submission Successfully";
-    } else{
-        echo "Data Submission Successfully";
-
-    }
+    $name       = mysqli_real_escape_string($con, $_POST['name']);
+    $email      = mysqli_real_escape_string($con, $_POST['email']);
+    $message    = mysqli_real_escape_string($con, $_POST['message']);
     
-}   
+    $sql = "INSERT INTO formsubmit (name, email, message) VALUES (?, ?, ?)";
+    $stmt = mysqli_prepare($con, $sql);
+    
+    if ($stmt) {
+        mysqli_stmt_bind_param($stmt, "sss", $name, $email, $message);
+        if (mysqli_stmt_execute($stmt)) {
+            echo "Data Submitted Successfully";
+        } else {
+            echo "Error: " . mysqli_stmt_error($stmt);
+        }
+        mysqli_stmt_close($stmt);
+    } else {
+        echo "Error: " . mysqli_error($con);
+    }
+}
+
 ?>
 
 
@@ -36,7 +42,7 @@ if(isset($_POST['submit'])){
             <div class = "col-md-6 bg-dark">
             <div class="form-group text-white"><span><h1><?=$heading;?></h1> </span></div>
                 <form action="form.php" method="POST"> 
-                   <!-- submit.php -->
+                   <!-- form.php -->
                     <fieldset class="bg-light m-5" >
                     <div class="row mb-3">
                         <i class="fas fa-user"></i>
